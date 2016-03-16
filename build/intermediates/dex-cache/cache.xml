@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/Mathew/.gradle/caches/modules-2/files-2.1/com.backendless/backendless/3.0.8.2/d8b8f135eeb02287297349fa144f615f54d7bb1b/backendless-3.0.8.2.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="d8b8f135eeb02287297349fa144f615f54d7bb1b">
+        <dex dex="/Users/Mathew/Documents/Android_movie/app/build/intermediates/pre-dexed/debug/backendless-3.0.8.2_8ff2765cc83163fdb497d5c296dd3bf2cb46784b.jar" />
+    </item>
+
+</items>

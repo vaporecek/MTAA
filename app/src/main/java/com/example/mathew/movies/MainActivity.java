@@ -9,24 +9,78 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import android.app.LoaderManager;
+import android.content.Intent;
+import android.content.res.TypedArray;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.GridView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.backendless.Backendless;
+import com.backendless.BackendlessUser;
+import com.backendless.async.callback.AsyncCallback;
+//import com.backendless.async.callback.AsyncCallback;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        Backendless.initApp(this, BackendLessOption.APPLICATION_ID, BackendLessOption.ANDROID_SECRET_KEY, BackendLessOption.VERSION);
+    }
+       // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+      //  setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+
+        public void login_click(View v) {
+            EditText login = (EditText) findViewById(R.id.username);
+            EditText passwd = (EditText) findViewById(R.id.password);
+
+            CharSequence l = login.getText().toString();
+            CharSequence p = passwd.getText().toString();
+
+            LoadingCallback<BackendlessUser> loginCallback = createLoginCallback();
+
+            loginCallback.showLoading();
+            loginUser(l.toString(), p.toString(), loginCallback);
+        }
+      // FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+     /*   fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        }); */
+
+
+    public void loginUser( String email, String password, AsyncCallback<BackendlessUser> loginCallback )
+    {
+        Backendless.UserService.login( email, password, loginCallback );
     }
+
+    public LoadingCallback<BackendlessUser> createLoginCallback()
+    {
+        return new LoadingCallback<BackendlessUser>( this, "string" );
+      {
+            @Override
+            public void handleResponse( BackendlessUser loggedInUser )
+            {
+                super.handleResponse( loggedInUser );
+                Toast.makeText(MainActivity.this, String.format("string"), loggedInUser.getObjectId()), Toast.LENGTH_LONG).show();
+              //  Intent intent = new Intent(MainActivity.this, Main_page.class);
+            //    startActivity(intent);
+             //   finish();
+            }
+        };
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
