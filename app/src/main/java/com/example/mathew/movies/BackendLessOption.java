@@ -9,4 +9,6 @@ public class BackendLessOption {
         protected static final String ANDROID_SECRET_KEY="60445B46-9AE4-CD43-FF59-D8694B35C800";
         protected static final String VERSION="v1";
 
+        //protected je podla mna nebezpecne ale funguje :)
+
 }
