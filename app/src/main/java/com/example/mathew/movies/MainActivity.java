@@ -30,14 +30,18 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        System.out.println("Spustam appku!!!!!!!!!!!!!!!!");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Backendless.initApp(this, BackendLessOption.APPLICATION_ID, BackendLessOption.ANDROID_SECRET_KEY, BackendLessOption.VERSION);
+        RestCommunicator com = new RestCommunicator();
+        com.execute("");
     }
+}
        // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
       //  setSupportActionBar(toolbar);
 
-
+/*
         public void login_click(View v) {
             EditText login = (EditText) findViewById(R.id.username);
             EditText passwd = (EditText) findViewById(R.id.password);
@@ -50,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
             loginCallback.showLoading();
             loginUser(l.toString(), p.toString(), loginCallback);
         }
+    */
+
       // FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
      /*   fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }); */
 
-
+/*
     public void loginUser( String email, String password, AsyncCallback<BackendlessUser> loginCallback )
     {
         Backendless.UserService.login( email, password, loginCallback );
@@ -103,4 +109,4 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-}
+}*/
