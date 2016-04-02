@@ -6,6 +6,7 @@ import java.util.Date;
  * Created by Karol on 02.04.2016.
  */
 public class Movies {
+    int listingID;
     int country;
     String description;
     int gender;
@@ -15,5 +16,8 @@ public class Movies {
     String screenplay;
     String title;
     String to_watch;
-
+    String backendlessObjectid;
+    String ownerId;
+    Date created;
+    Date updated;
 }
