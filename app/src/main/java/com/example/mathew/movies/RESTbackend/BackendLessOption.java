@@ -1,4 +1,4 @@
-package com.example.mathew.movies;
+package com.example.mathew.movies.RESTbackend;
 
 /**
  * Created by Mathew on 16.03.16.
