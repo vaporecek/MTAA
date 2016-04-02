@@ -1,29 +1,12 @@
 package com.example.mathew.movies;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
-
-import android.app.LoaderManager;
-import android.content.Intent;
-import android.content.res.TypedArray;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.GridView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.backendless.Backendless;
-import com.backendless.BackendlessUser;
-import com.backendless.async.callback.AsyncCallback;
+import com.example.mathew.movies.RESTbackend.BackendLessOption;
+import com.example.mathew.movies.RESTbackend.BackendURLs;
+import com.example.mathew.movies.RESTbackend.RestCommunicator;
 //import com.backendless.async.callback.AsyncCallback;
 
 public class MainActivity extends AppCompatActivity {
@@ -33,9 +16,8 @@ public class MainActivity extends AppCompatActivity {
         System.out.println("Spustam appku!!!!!!!!!!!!!!!!");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Backendless.initApp(this, BackendLessOption.APPLICATION_ID, BackendLessOption.ANDROID_SECRET_KEY, BackendLessOption.VERSION);
         RestCommunicator com = new RestCommunicator();
-        com.execute("");
+        com.execute(BackendURLs.GETmoviesURL);
     }
 }
        // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
