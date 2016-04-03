@@ -8,7 +8,7 @@ import java.net.URL;
  * Created by Karol on 02.04.2016.
  */
 
-//storuje URL-ky, neskor cely post a ger messadge config
+//storuje URL-ky, neskor cely post a get messadge config
 public class BackendURLs{
 
     public static URL GETmoviesURL;
