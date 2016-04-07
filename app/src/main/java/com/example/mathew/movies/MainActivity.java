@@ -9,6 +9,7 @@ import com.example.mathew.movies.RESTbackend.BackendLessOption;
 import com.example.mathew.movies.RESTbackend.BackendURLs;
 import com.example.mathew.movies.RESTbackend.ConnectionResponse;
 import com.example.mathew.movies.RESTbackend.RestCommunicator;
+import com.example.mathew.movies.RESTbackend.RestConfig;
 
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
@@ -32,7 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
         //priklad, na pracu s mojim rozhranim> stiahne a vypise vsetky zaznamy zo serveru
         RestCommunicator com = new RestCommunicator();
-        com.execute(BackendURLs.GETmoviesURL);
+        RestConfig config = new RestConfig();
+        com.execute(config);
         try {
             ConnectionResponse poslednaOdpoved = com.get();
             ArrayList<Movies> filmy = poslednaOdpoved.getFilmy();
