@@ -45,4 +45,7 @@ public class RestConfig{
         return this.type;
     }
 
+    public RestConfig(int type) {
+        this.type = type;
+    }
 }

@@ -5,8 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.backendless.Backendless;
 import com.example.mathew.movies.DataClasses.Movies;
-import com.example.mathew.movies.RESTbackend.BackendLessOption;
-import com.example.mathew.movies.RESTbackend.BackendURLs;
 import com.example.mathew.movies.RESTbackend.ConnectionResponse;
 import com.example.mathew.movies.RESTbackend.RestCommunicator;
 import com.example.mathew.movies.RESTbackend.RestConfig;
@@ -33,7 +31,8 @@ public class MainActivity extends AppCompatActivity {
 
         //priklad, na pracu s mojim rozhranim> stiahne a vypise vsetky zaznamy zo serveru
         RestCommunicator com = new RestCommunicator();
-        RestConfig config = new RestConfig();
+        RestConfig config = new RestConfig(1);
+        RestConfig inasranda = new RestConfig(2);
         com.execute(config);
         try {
             ConnectionResponse poslednaOdpoved = com.get();
