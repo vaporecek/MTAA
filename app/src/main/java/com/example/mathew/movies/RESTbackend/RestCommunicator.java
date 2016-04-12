@@ -57,7 +57,7 @@ public class RestCommunicator extends AsyncTask<RestConfig, Void, ConnectionResp
                 int responseCode = connection.getResponseCode();
                 Log.d("REST", "Response: " + responseCode);
 
-                //ak bol request uspesny idem parsovat Json
+                //ak bol GET request uspesny idem parsovat Json
                 if (responseCode == 200) {
                     JSONObject objektus = new JSONObject(responseBody);
 
@@ -71,20 +71,44 @@ public class RestCommunicator extends AsyncTask<RestConfig, Void, ConnectionResp
                 }
             }
 
-            if (params[0].getTYPE()==2){
-                OutputStreamWriter out = new OutputStreamWriter(
-                        connection.getOutputStream());
-                out.write("some data");
-                out.close();
-
+            //pre DELETE
+            if (params[0].getTYPE()==4){
+                connection.connect();
 
                 int responseCode = connection.getResponseCode();
                 Log.d("REST", "Response: " + responseCode);
 
-                //ak bol request uspesny idem parsovat Json
+                //ak bol DELETE request uspesny
                 if (responseCode == 200) {
+                    return new ConnectionResponse(6);
                 } else {
-                    return new ConnectionResponse(0);
+                    return new ConnectionResponse(7);
+                }
+
+            }
+
+            //pre PUT a POST
+            if (params[0].getTYPE()==2 || params[0].getTYPE()==3){
+                OutputStreamWriter out = new OutputStreamWriter(connection.getOutputStream());
+
+                out.write(params[0].getJson());
+                out.close();
+
+                int responseCode = connection.getResponseCode();
+                Log.d("REST", "Response: " + responseCode);
+
+                //ak bol PUT request uspesny
+                if (responseCode == 200 && params[0].getTYPE()==2) {
+                    return new ConnectionResponse(2);
+                } else if(params[0].getTYPE()==2){
+                    return new ConnectionResponse(3);
+                }
+
+                //ak bol POST request uspesny
+                if (responseCode == 200 && params[0].getTYPE()==3) {
+                    return new ConnectionResponse(4);
+                } else {
+                    return new ConnectionResponse(5);
                 }
 
             }

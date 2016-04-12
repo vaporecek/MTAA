@@ -32,4 +32,27 @@ public class JsonProcesing {
         return filmy;
     }
 
+    //vytvory z filmu novy JSONobject
+    public static JSONObject GenerateJason(Movies film){
+        JSONObject json = new JSONObject();
+
+        try {
+
+            json.put("country",film.getCountry());
+            json.put("Description",film.getDescription());
+            json.put("gender",film.getGender());
+            json.put("rating",film.getRating());
+            json.put("Title",film.getTitle());
+            json.put("picture",film.getPicture());
+            json.put("Play_time",film.getPlay_time());
+            json.put("to_watch",film.getTo_watch());
+            json.put("Screenplay",film.getScreenplay());
+
+        } catch (Exception e) {
+            Log.e("JsonProcesing", e.getClass() + ": " + e.getMessage());
+        }
+
+        return json;
+    }
+
 }

@@ -23,6 +23,10 @@ public class ConnectionResponse {
             case 0: this.ReturnedMessadge = "Download failure"; break;
             case 2: this.ReturnedMessadge = "Upload sucessfull"; break;
             case 3: this.ReturnedMessadge = "Upload failure"; break;
+            case 4: this.ReturnedMessadge = "Update sucessfull"; break;
+            case 5: this.ReturnedMessadge = "Update failure"; break;
+            case 6: this.ReturnedMessadge = "Deletion sucessfull"; break;
+            case 7: this.ReturnedMessadge = "Deletion failure"; break;
             default: this.ReturnedMessadge = "Unknown error occoured";
         }
 
@@ -38,6 +42,10 @@ public class ConnectionResponse {
             case 0: this.ReturnedMessadge = "Download failure"; break;
             case 2: this.ReturnedMessadge = "Upload sucessfull"; break;
             case 3: this.ReturnedMessadge = "Upload failure"; break;
+            case 4: this.ReturnedMessadge = "Update sucessfull"; break;
+            case 5: this.ReturnedMessadge = "Update failure"; break;
+            case 6: this.ReturnedMessadge = "Deletion sucessfull"; break;
+            case 7: this.ReturnedMessadge = "Deletion failure"; break;
             default: this.ReturnedMessadge = "Unknown error occoured";
         }
 
