@@ -6,6 +6,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 /**
@@ -13,6 +14,8 @@ import java.util.ArrayList;
  */
 //Trieda prijme JsonString s jasona, postupne ho prejde a rozdeli najednotlive objekty nad ktorymi zavola konstruktor, vracia array list filmou
 public class JsonProcesing {
+
+    private static SimpleDateFormat originalFormat = new SimpleDateFormat("yyyyMMddHHMMSS");
 
     public static ArrayList<Movies> GenerateMovies(JSONArray imputarray){
 
@@ -44,7 +47,7 @@ public class JsonProcesing {
             json.put("rating",film.getRating());
             json.put("Title",film.getTitle());
             json.put("picture",film.getPicture());
-            json.put("Play_time",film.getPlay_time());
+            json.put("Play_time",originalFormat.format(film.getPlay_time()));
             json.put("to_watch",film.getTo_watch());
             json.put("Screenplay",film.getScreenplay());
 

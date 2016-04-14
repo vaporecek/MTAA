@@ -36,11 +36,10 @@ public class RestCommunicator extends AsyncTask<RestConfig, Void, ConnectionResp
 
         try {
 
-            System.out.println("******Pripajam sa na: "+params[0].getURL()+"******");
+            System.out.println("******Pripajam sa na: " + params[0].getURL() + "******");
             HttpURLConnection connection = (HttpURLConnection)params[0].getURL().openConnection();
             connection.setRequestMethod(params[0].getMETHOD());
             connection.setUseCaches(false);
-            connection.setDoInput(true);
             //connection.setRequestProperty("Connection", "Keep-Alive");
             //connection.setRequestProperty("Accept", "application/json");
             connection.setRequestProperty("application-id", BackendLessOption.APPLICATION_ID );
@@ -51,7 +50,8 @@ public class RestCommunicator extends AsyncTask<RestConfig, Void, ConnectionResp
 
             //pre GET
             if(params[0].getTYPE()==1) {
-
+                System.out.println("******Vykonavam GET request******");
+                connection.setDoInput(true);
                 connection.connect();
                 String responseBody = readStream(connection.getInputStream());
                 int responseCode = connection.getResponseCode();
@@ -73,6 +73,8 @@ public class RestCommunicator extends AsyncTask<RestConfig, Void, ConnectionResp
 
             //pre DELETE
             if (params[0].getTYPE()==4){
+                System.out.println("******Vykonavam DELETE request******");
+                connection.setDoInput(true);
                 connection.connect();
 
                 int responseCode = connection.getResponseCode();
@@ -89,6 +91,9 @@ public class RestCommunicator extends AsyncTask<RestConfig, Void, ConnectionResp
 
             //pre PUT a POST
             if (params[0].getTYPE()==2 || params[0].getTYPE()==3){
+                connection.setDoOutput(true);
+                connection.setRequestProperty("content-type", "application/json");
+                System.out.println("******Vykonavam PUT/POST request******");
                 OutputStreamWriter out = new OutputStreamWriter(connection.getOutputStream());
 
                 out.write(params[0].getJson());

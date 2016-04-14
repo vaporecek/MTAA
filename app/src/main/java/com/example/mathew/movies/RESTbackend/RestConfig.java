@@ -34,8 +34,8 @@ public class RestConfig{
 
     //vracia URL
     public URL getURL(){
-        //ak vraciame URL pre DELETE a POST
-        if(this.type==4 || this.type==3){
+        //ak vraciame URL pre DELETE a PUT
+        if(this.type==4 || this.type==2){
             try {
                 return new URL("https://api.backendless.com/v1/data/Movies/" + film.getBackendlessObjectid());
             }catch (Exception e){
@@ -51,13 +51,13 @@ public class RestConfig{
     public String getMETHOD(){
         switch (this.type) {
             case 1:
-                return "GET";
+                return "GET"; //ziskat zoznam vsetkych
             case 2:
-                return "PUT";
+                return "PUT"; //aktualizacia existujuceho objektu
             case 3:
-                return "POST";
+                return "POST"; //pridanie noveho objektu
             case 4:
-                return "DELETE";
+                return "DELETE"; //zmazem entitu
         }
         return "";
     }

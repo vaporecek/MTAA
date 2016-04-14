@@ -10,9 +10,9 @@ import java.util.ArrayList;
 
 //trieda vracia odpoved od spojenia
 public class ConnectionResponse {
-    int StatusID; // podla ID vidis ci sa to podarilo alebo nie, to preto aby si si to vedel ohandlovat v aplikacii
-    String ReturnedMessadge; // string, sprava o vysledku operacie, podla toho zistis ktore ID co znamena
-    ArrayList<Movies> filmy; // toto obsahuje samotny zoznam filmou stiahnuty zo servera, ak sa to nepodarilo obsahuje null
+    private int StatusID; // podla ID vidis ci sa to podarilo alebo nie, to preto aby si si to vedel ohandlovat v aplikacii
+    private String ReturnedMessadge; // string, sprava o vysledku operacie, podla toho zistis ktore ID co znamena
+    private ArrayList<Movies> filmy; // toto obsahuje samotny zoznam filmou stiahnuty zo servera, ak sa to nepodarilo obsahuje null
 
     //konstruktor na vytvaranie aj so zoznamom filmou
     public ConnectionResponse(int ID, ArrayList<Movies> filmy){
@@ -63,6 +63,10 @@ public class ConnectionResponse {
     //getter na filmy, vrati ti array list filmou
     public ArrayList<Movies> getFilmy() {
         return filmy;
+    }
+
+    public String toString(){
+        return ("****CRUD operacia: "+this.ReturnedMessadge);
     }
 
 
