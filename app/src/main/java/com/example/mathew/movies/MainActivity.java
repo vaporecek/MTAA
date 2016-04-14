@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.backendless.Backendless;
 import com.example.mathew.movies.DataClasses.Movies;
+import com.example.mathew.movies.RESTbackend.CRUDhandler;
 import com.example.mathew.movies.RESTbackend.ConnectionResponse;
 import com.example.mathew.movies.RESTbackend.RestCommunicator;
 import com.example.mathew.movies.RESTbackend.RestConfig;
@@ -22,29 +23,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /* **KAROL> toto je kod ktorym si vies zavolat sluzbu na nacitanie dat z backendu
-        RestCommunicator com = new RestCommunicator(); -- vytvoris novu triedu rest comunicator, ta sa da pouzivat na komunikaciu s backendom, zatial iba na stahovanie, upload dorobim neskor
-        com.execute(BackendURLs.GETmoviesURL); -- spustis s URL-kou, neskor to nahradim konfiguracnou triedou ale teraz ide iba to stahovanie
-        ConnectionResponse poslednaOdpoved = com.get(); -- ziskas odpoved ked sa data dostahuju (pozor hadze vinimky), odpoved je zabalene v triede ConnectionResponse
-        !!!!!! Pre strukturu odpovede pozri triedu ConnectionResponse
-        */
 
-        //priklad, na pracu s mojim rozhranim> stiahne a vypise vsetky zaznamy zo serveru
-        RestCommunicator com = new RestCommunicator();
-        RestConfig config = new RestConfig(1);
-        RestConfig inasranda = new RestConfig(2);
-        com.execute(config);
-        try {
-            ConnectionResponse poslednaOdpoved = com.get();
-            ArrayList<Movies> filmy = poslednaOdpoved.getFilmy();
-            for (int i = 0; i < filmy.size(); i++) {
-                System.out.println("Zaznam cislo "+i+": "+filmy.get(i).toString());
-            }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
+        //*KAROL: Na backend sa dostanes jednoducho pomocou volania statickych metod PUT, POST, GET, DELETE triedy CRUDhandler
+
+            try {
+
+                ConnectionResponse poslednaOdpoved = CRUDhandler.GET(); //takto volam GET
+                ArrayList<Movies> filmy = poslednaOdpoved.getFilmy(); //takto ziskam zoznam filmou (pozri triedu ConnectionResponse)
+                Movies film = filmy.get(1);
+                CRUDhandler.PUT(film); //PUT
+                CRUDhandler.POST(film); //PUT
+                CRUDhandler.DELETE(film); //PUT
+
+            }catch(Exception e){e.printStackTrace();}
+
 
 
     }

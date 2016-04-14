@@ -14,21 +14,21 @@ import java.util.Date;
 
 //trieda co implementuje filmy je napisana presne podla databazy, ak tu budes nieco menit tak to konzultuj so mnou lebo s nou intenzivne pracujem
 public class Movies {
-    int listingID;
-    int country;
-    String description;
-    int gender;
-    String picture;
-    Date play_time;
-    int rating;
-    String screenplay;
-    String title;
-    String to_watch;
-    String backendlessObjectid;
-    String ownerId;
-    Date created;
-    Date updated;
-    SimpleDateFormat originalFormat = new SimpleDateFormat("yyyyMMddHHMMSS"); //uklada format datumu a casu v akom je to ulozene na backendlesse
+    private int listingID;
+    private int country;
+    private String description;
+    private int gender;
+    private String picture;
+    private Date play_time;
+    private int rating;
+    private String screenplay;
+    private String title;
+    private String to_watch;
+    private String backendlessObjectid;
+    private String ownerId;
+    private Date created;
+    private Date updated;
+    private SimpleDateFormat originalFormat = new SimpleDateFormat("yyyyMMddHHMMSS"); //uklada format datumu a casu v akom je to ulozene na backendlesse
 
     //Zakladny konstruktor, keby si potrebujes vytvorit novy zaznam
     public Movies(int listingID, int country, String description, int gender, String picture, Date play_time, int rating, String screenplay, String title, String to_watch, String backendlessObjectid, String ownerId, Date created, Date updated) {
@@ -87,5 +87,118 @@ public class Movies {
                 + gender + ", picture=" + picture + ", play_time=" + play_time + ", rating=" + rating + ", screenplay="
                 + screenplay + ", title=" + title + ", to_watch=" + to_watch + ", backendlessObjectid="
                 + backendlessObjectid + ", ownerId=" + ownerId + ", created=" + created + ", updated=" + updated + "]";
+    }
+
+    //getters and setters
+    public int getListingID() {
+        return listingID;
+    }
+
+    public void setListingID(int listingID) {
+        this.listingID = listingID;
+    }
+
+    public int getCountry() {
+        return country;
+    }
+
+    public void setCountry(int country) {
+        this.country = country;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public int getGender() {
+        return gender;
+    }
+
+    public void setGender(int gender) {
+        this.gender = gender;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
+
+    public Date getPlay_time() {
+        return play_time;
+    }
+
+    public void setPlay_time(Date play_time) {
+        this.play_time = play_time;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
+    public String getScreenplay() {
+        return screenplay;
+    }
+
+    public void setScreenplay(String screenplay) {
+        this.screenplay = screenplay;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getTo_watch() {
+        return to_watch;
+    }
+
+    public void setTo_watch(String to_watch) {
+        this.to_watch = to_watch;
+    }
+
+    public String getBackendlessObjectid() {
+        return backendlessObjectid;
+    }
+
+    public void setBackendlessObjectid(String backendlessObjectid) {
+        this.backendlessObjectid = backendlessObjectid;
+    }
+
+    public String getOwnerId() {
+        return ownerId;
+    }
+
+    public void setOwnerId(String ownerId) {
+        this.ownerId = ownerId;
+    }
+
+    public Date getCreated() {
+        return created;
+    }
+
+    public void setCreated(Date created) {
+        this.created = created;
+    }
+
+    public Date getUpdated() {
+        return updated;
+    }
+
+    public void setUpdated(Date updated) {
+        this.updated = updated;
     }
 }
