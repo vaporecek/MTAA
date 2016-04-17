@@ -17,13 +17,15 @@ import static java.lang.String.*;
 public class RestConfig{
 
     private static URL moviesURL;
-    private int type; //1 - GET, 2-PUT, 3-POST, 4-DELETE
+    private static URL usersURL;
+    private int type; //1 - GET, 2-PUT, 3-POST, 4-DELETE, 5-USER AUTENTKATION
     private static Movies film;
 
     //nakonfigurujeme aj URL
     static {
         try {
             moviesURL = new URL("https://api.backendless.com/v1/data/Movies");
+            usersURL = new URL("https://api.backendless.com/v1/data/Users");
         }
         catch (Exception e){
             Log.e("URL", e.getClass() + ": " + e.getMessage());
@@ -34,6 +36,11 @@ public class RestConfig{
 
     //vracia URL
     public URL getURL(){
+        //ak sa jedna o user autentikaciu
+        if(this.type==5){
+            return usersURL;
+        }
+
         //ak vraciame URL pre DELETE a PUT
         if(this.type==4 || this.type==2){
             try {
@@ -58,6 +65,8 @@ public class RestConfig{
                 return "POST"; //pridanie noveho objektu
             case 4:
                 return "DELETE"; //zmazem entitu
+            case 5:
+                return "GET";
         }
         return "";
     }
