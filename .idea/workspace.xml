@@ -16,19 +16,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="89a6f68f-8cb8-4ad3-a410-4bc443f09e01" name="Default" comment="FInalizacia backendu, uz chyba iba lahky debugung&#10;&#10;Na backend sa dostanes jednoducho pomocou volania statickych metod PUT, POST, GET, DELETE triedy CRUDhandler, bacha vyhadzuju exception&#10;&#10;            try {&#10;&#10;                ConnectionResponse poslednaOdpoved = CRUDhandler.GET(); //takto volam GET&#10;                ArrayList&lt;Movies&gt; filmy = poslednaOdpoved.getFilmy(); //takto ziskam zoznam filmou (pozri triedu ConnectionResponse)&#10;                film = zaznam s ktorym chcem pracovat (pridat, upravit, zmazat)&#10;                CRUDhandler.PUT(film); //PUT&#10;                CRUDhandler.POST(film); //PUT&#10;                CRUDhandler.DELETE(film); //PUT">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mathew/movies/Micelaus/UserValidation.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mathew/movies/DataClasses/Users.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/cache.properties.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mathew/movies/RESTbackend/ConnectionResponse.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mathew/movies/RESTbackend/ConnectionResponse.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mathew/movies/DataClasses/JsonProcesing.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mathew/movies/DataClasses/JsonProcesing.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mathew/movies/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mathew/movies/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mathew/movies/DataClasses/Movies.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mathew/movies/DataClasses/Movies.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mathew/movies/RESTbackend/RestCommunicator.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mathew/movies/RESTbackend/RestCommunicator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mathew/movies/RESTbackend/RestConfig.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mathew/movies/RESTbackend/RestConfig.java" />
+    <list default="true" id="89a6f68f-8cb8-4ad3-a410-4bc443f09e01" name="Default" comment="polishnutie backendu">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -2227,7 +2215,13 @@
       <option name="project" value="LOCAL" />
       <updated>1460672555283</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="polishnutie backendu">
+      <created>1460929667403</created>
+      <option name="number" value="00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1460929667403</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2251,7 +2245,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854864" sideWeight="0.5219365" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36363637" sideWeight="0.81316185" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36363637" sideWeight="0.81316185" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854864" sideWeight="0.48411497" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32695374" sideWeight="0.72768533" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854864" sideWeight="0.47806355" order="12" side_tool="false" content_ui="tabs" />
@@ -2296,7 +2290,8 @@
     <MESSAGE value="pridanie restcomunicator classy" />
     <MESSAGE value="Upravenie backendu na DELETE, PUT a POST, este nie je zdebugovane" />
     <MESSAGE value="FInalizacia backendu, uz chyba iba lahky debugung&#10;&#10;Na backend sa dostanes jednoducho pomocou volania statickych metod PUT, POST, GET, DELETE triedy CRUDhandler, bacha vyhadzuju exception&#10;&#10;            try {&#10;&#10;                ConnectionResponse poslednaOdpoved = CRUDhandler.GET(); //takto volam GET&#10;                ArrayList&lt;Movies&gt; filmy = poslednaOdpoved.getFilmy(); //takto ziskam zoznam filmou (pozri triedu ConnectionResponse)&#10;                film = zaznam s ktorym chcem pracovat (pridat, upravit, zmazat)&#10;                CRUDhandler.PUT(film); //PUT&#10;                CRUDhandler.POST(film); //PUT&#10;                CRUDhandler.DELETE(film); //PUT" />
-    <option name="LAST_COMMIT_MESSAGE" value="FInalizacia backendu, uz chyba iba lahky debugung&#10;&#10;Na backend sa dostanes jednoducho pomocou volania statickych metod PUT, POST, GET, DELETE triedy CRUDhandler, bacha vyhadzuju exception&#10;&#10;            try {&#10;&#10;                ConnectionResponse poslednaOdpoved = CRUDhandler.GET(); //takto volam GET&#10;                ArrayList&lt;Movies&gt; filmy = poslednaOdpoved.getFilmy(); //takto ziskam zoznam filmou (pozri triedu ConnectionResponse)&#10;                film = zaznam s ktorym chcem pracovat (pridat, upravit, zmazat)&#10;                CRUDhandler.PUT(film); //PUT&#10;                CRUDhandler.POST(film); //PUT&#10;                CRUDhandler.DELETE(film); //PUT" />
+    <MESSAGE value="polishnutie backendu" />
+    <option name="LAST_COMMIT_MESSAGE" value="polishnutie backendu" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
