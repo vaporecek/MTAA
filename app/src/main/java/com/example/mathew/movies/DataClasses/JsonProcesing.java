@@ -58,4 +58,21 @@ public class JsonProcesing {
         return json;
     }
 
+    public static ArrayList<Users> GenerateUsers(JSONArray imputarray) {
+
+        ArrayList<Users> usry = new ArrayList<Users>();
+
+        try {
+
+            //nad kazdym objektom v sprave zavolam konstruktor na vytvorenie novej instancie Movies
+            for (int i=0; i<imputarray.length(); i++) {
+                usry.add(new Users(imputarray.getJSONObject(i)));
+
+            }
+        } catch (Exception e) {
+            Log.e("JsonProcesing", e.getClass() + ": " + e.getMessage());
+        }
+
+        return usry;
+    }
 }

@@ -1,8 +1,5 @@
 package com.example.mathew.movies.DataClasses;
 
-import android.util.JsonReader;
-
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
@@ -64,10 +61,18 @@ public class Movies {
             this.to_watch = toParse.getString("to_watch");
             this.backendlessObjectid = toParse.getString("objectId");
             this.ownerId = toParse.getString("ownerId");
-            this.play_time = originalFormat.parse(toParse.getString("Play_time"));
-            this.created = originalFormat.parse(toParse.getString("created"));
+            String prehravanie = toParse.getString("Play_time");
+            String aktualizacnycas = toParse.getString("created");
+            if(aktualizacnycas != null)
+                this.created = originalFormat.parse(aktualizacnycas);
+            else
+                this.created=null;
+            if(prehravanie != null)
+                this.play_time = originalFormat.parse(toParse.getString(prehravanie));
+            else
+                this.play_time = null;
             String updateddate = toParse.getString("updated");
-            if(updateddate != "null")
+            if(updateddate != null)
                 this.updated = originalFormat.parse(toParse.getString("updated"));
             else
                 this.updated = null;

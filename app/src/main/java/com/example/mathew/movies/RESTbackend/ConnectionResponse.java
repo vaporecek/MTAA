@@ -1,6 +1,7 @@
 package com.example.mathew.movies.RESTbackend;
 
 import com.example.mathew.movies.DataClasses.Movies;
+import com.example.mathew.movies.DataClasses.Users;
 
 import java.util.ArrayList;
 
@@ -13,6 +14,7 @@ public class ConnectionResponse {
     private int StatusID; // podla ID vidis ci sa to podarilo alebo nie, to preto aby si si to vedel ohandlovat v aplikacii
     private String ReturnedMessadge; // string, sprava o vysledku operacie, podla toho zistis ktore ID co znamena
     private ArrayList<Movies> filmy; // toto obsahuje samotny zoznam filmou stiahnuty zo servera, ak sa to nepodarilo obsahuje null
+    private ArrayList<Users> users;
 
     //konstruktor na vytvaranie aj so zoznamom filmou
     public ConnectionResponse(int ID, ArrayList<Movies> filmy){
@@ -31,6 +33,12 @@ public class ConnectionResponse {
         }
 
 
+    }
+
+    //konstruktor na vytvaranie s custom spravou
+    public ConnectionResponse(ArrayList<Users> usery){
+        this.StatusID=8;
+        this.users=usery;
     }
 
     //konstruktor na vytvaranie bez zoznamu filmou
@@ -63,6 +71,10 @@ public class ConnectionResponse {
     //getter na filmy, vrati ti array list filmou
     public ArrayList<Movies> getFilmy() {
         return filmy;
+    }
+
+    public ArrayList<Users> getUsers() {
+        return users;
     }
 
     public String toString(){
