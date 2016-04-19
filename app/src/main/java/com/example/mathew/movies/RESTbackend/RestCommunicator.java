@@ -8,6 +8,7 @@ import android.util.Log;
 
 import com.example.mathew.movies.DataClasses.JsonProcesing;
 import com.example.mathew.movies.DataClasses.Movies;
+import com.example.mathew.movies.DataClasses.Users;
 
 import org.json.JSONObject;
 
@@ -49,13 +50,22 @@ public class RestCommunicator extends AsyncTask<RestConfig, Void, ConnectionResp
 
 
             //pre GET
-            if(params[0].getTYPE()==1) {
+            if(params[0].getTYPE()==1 || params[0].getTYPE()==5) {
                 System.out.println("******Vykonavam GET request******");
                 connection.setDoInput(true);
                 connection.connect();
                 String responseBody = readStream(connection.getInputStream());
                 int responseCode = connection.getResponseCode();
                 Log.d("REST", "Response: " + responseCode);
+
+                //pre overenie usera
+                if(responseCode == 200 && params[0].getTYPE()==5){
+                    JSONObject objektus = new JSONObject(responseBody);
+                    System.out.println("&&&&&&&&&&&&&&&&&&&"+responseBody);
+                    //zavolam parser ktory spracuje Json
+                    ArrayList<Users> list = JsonProcesing.GenerateUsers(objektus.getJSONArray("data"));
+                    return new ConnectionResponse(list);
+                }
 
                 //ak bol GET request uspesny idem parsovat Json
                 if (responseCode == 200) {

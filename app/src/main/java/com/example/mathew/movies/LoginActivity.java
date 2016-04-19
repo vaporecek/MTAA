@@ -90,7 +90,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
             if (result == resultOK) {
-                Intent mainIntent = new Intent(LoginActivity.this, LoginActivity.class);
+                Intent mainIntent = new Intent(LoginActivity.this, MainActivity.class);
 
                 startActivity(mainIntent);
                 finish();
@@ -149,7 +149,7 @@ public class LoginActivity extends AppCompatActivity {
 
         //*KAROL: Na backend sa dostanes jednoducho pomocou volania statickych metod PUT, POST, GET, DELETE triedy CRUDhandler
 
-            try {
+            /*try {
 
                 ConnectionResponse poslednaOdpoved = CRUDhandler.GET(); //takto volam GET
                 ArrayList<Movies> filmy = poslednaOdpoved.getFilmy(); //takto ziskam zoznam filmou (pozri triedu ConnectionResponse)
@@ -158,7 +158,7 @@ public class LoginActivity extends AppCompatActivity {
                 CRUDhandler.POST(film); //PUT
                 CRUDhandler.DELETE(film); //PUT
 
-            }catch(Exception e){e.printStackTrace();}
+            }catch(Exception e){e.printStackTrace();}*/
     }
 
     private void showLoginErrorDialog(String title, String message) {

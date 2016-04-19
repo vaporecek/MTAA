@@ -28,7 +28,8 @@
         android:ems="10"
         android:id="@+id/et_Email"
         android:layout_above="@+id/et_Password"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:text="matus@gmail.com" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -38,7 +39,7 @@
         android:id="@+id/et_Password"
         android:transitionName="Password"
         android:password="true"
-        android:text="Password"
+        android:text="123"
         android:layout_above="@+id/btn_Login"
         android:layout_centerHorizontal="true" />
 
