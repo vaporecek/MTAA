@@ -38,30 +38,33 @@ public class MainActivity extends AppCompatActivity {
 
         private final Activity context;
         public final ArrayList<String> listOfTexts;
+        public final ArrayList<String> listofDesc;
         public final ArrayList<Integer> imageIDs;
-        public CustomList(Activity context, ArrayList<String> listOfTexts, ArrayList<Integer> imageId) {
+        public CustomList(Activity context, ArrayList<String> listOfTexts, ArrayList<Integer> imageId, ArrayList<String> listofDescript) {
             super(context, R.layout.imagetextlist, listOfTexts);
             this.context = context;
             this.listOfTexts = listOfTexts;
             this.imageIDs = imageId;
-
+            this.listofDesc = listofDescript;
         }
         @Override
         public View getView(int position, View view, ViewGroup parent) {
             LayoutInflater inflater = context.getLayoutInflater();
             View rowView= inflater.inflate(R.layout.imagetextlist, null, true);
             TextView txtTitle = (TextView) rowView.findViewById(R.id.txt);
-
+            TextView txtDescript = (TextView) rowView.findViewById(R.id.txt2);
             ImageView imageView = (ImageView) rowView.findViewById(R.id.img);
             txtTitle.setText(listOfTexts.get(position));
+            txtDescript.setText(listofDesc.get(position));
 
             imageView.setImageResource(imageIDs.get(position));
             return rowView;
         }
 
-        public void addImageWithText(String text, int imageID)
+        public void addImageWithText(String text, int imageID, String textDesc)
         {
             listOfTexts.add(text);
+            listofDesc.add(textDesc);
             imageIDs.add(imageID);
         }
     }
@@ -77,26 +80,23 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         final ArrayList<String> texty = new ArrayList<String>();
+        final ArrayList<String> textDesc = new ArrayList<String>();
         final ArrayList<Integer> imageIDs = new ArrayList<Integer>();
 
         try {
             ConnectionResponse poslednaOdpoved = CRUDhandler.GET(); //takto volam GET
              filmy = poslednaOdpoved.getFilmy(); //takto ziskam zoznam filmou (pozri triedu ConnectionResponse)
-            int aaa = 0;
-            int numImages = 2;
             for(Movies m : filmy)
             {
-                texty.add(m.getTitle());
-                if(aaa % numImages ==  0)
-                    imageIDs.add(R.drawable.logo);
-                else if(aaa % numImages ==  1)
-                    imageIDs.add(R.drawable.scifi_city);
-                aaa++;
+                texty.add(m.getTitle() + "   ");
+                imageIDs.add(R.drawable.logo);
+                textDesc.add(m.getDescription());
+
             }
         }
         catch(Exception e){e.printStackTrace();}
 
-        adapter = new CustomList(MainActivity.this, texty, imageIDs);
+        adapter = new CustomList(MainActivity.this, texty, imageIDs,textDesc);
 
         //adapter.addImageWithText("fdfdfd", R.drawable.logo);
 
@@ -122,6 +122,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-    }
 
+
+    }
+    @Override
+    public void onBackPressed() {
+        Intent mainIntent = new Intent(MainActivity.this, LoginActivity.class);
+
+        startActivity(mainIntent);
+        finish();
+    }
 }

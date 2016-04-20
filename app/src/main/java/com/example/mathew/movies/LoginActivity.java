@@ -48,7 +48,7 @@ import java.util.List;
 public class LoginActivity extends AppCompatActivity {
 
     private static final String[] SAMPLE_CREDENTIALS = new String[]{
-            "matus@gmail.com:123", "matus@stuba.sk:123"
+            "matus@gmail.com:123", "karol@gmail.com:123"
     };
 
     public class AsyncLoginTask extends AsyncTask<Void, Void, Integer> {
@@ -68,7 +68,7 @@ public class LoginActivity extends AppCompatActivity {
         @Override
         protected Integer doInBackground(Void... params) {
             try{
-                Thread.sleep(2000);
+                Thread.sleep(3000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

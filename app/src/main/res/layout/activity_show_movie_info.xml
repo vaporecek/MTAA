@@ -9,13 +9,164 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.mathew.movies.ShowMovieInfoActivity">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/img"
+        android:src="@drawable/logo"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/tv_Title"
+        android:layout_above="@+id/tv_where" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Large Text"
-        android:id="@+id/tv_IDcko"
+        android:id="@+id/tv_Title"
         android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="69dp"
+        android:textStyle="bold"
+        android:textColor="#de0b0b" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/tv_desc"
+        android:layout_below="@+id/tv_Title"
+        android:layout_alignStart="@+id/tv_Title" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Play Schedule:"
+        android:id="@+id/tv_PlaySchedule"
+        android:editable="false"
+        android:singleLine="false"
+        android:textStyle="bold"
+        android:layout_marginBottom="39dp"
+        android:layout_above="@+id/tv_rating"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="58dp" />
+        android:layout_toStartOf="@+id/tv_where_back" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Where to watch:"
+        android:id="@+id/tv_where"
+        android:textStyle="bold"
+        android:layout_above="@+id/tv_PlaySchedule"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="38dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Rating:"
+        android:id="@+id/tv_rating"
+        android:textStyle="bold"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/tv_where_back" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Gander:"
+        android:id="@+id/tv_gander"
+        android:textStyle="bold"
+        android:password="false"
+        android:layout_marginBottom="34dp"
+        android:layout_above="@+id/tv_screenplay"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/tv_where_back" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Screenplay:"
+        android:id="@+id/tv_screenplay"
+        android:textStyle="bold"
+        android:password="false"
+        android:layout_above="@+id/tv_country"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="31dp"
+        android:layout_toStartOf="@+id/tv_where_back" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Country:"
+        android:id="@+id/tv_country"
+        android:textStyle="bold"
+        android:password="false"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="51dp"
+        android:layout_toStartOf="@+id/tv_where_back" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/tv_where_back"
+        android:layout_alignBottom="@+id/tv_where"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:ems="10"
+        android:id="@+id/et_playSchedule"
+        android:layout_alignBottom="@+id/tv_PlaySchedule"
+        android:layout_alignStart="@+id/tv_where_back" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/tv_rating_back"
+        android:layout_alignBottom="@+id/tv_rating"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/tv_gander_back"
+        android:layout_alignBottom="@+id/tv_gander"
+        android:layout_alignStart="@+id/tv_rating_back" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/tv_screenplay_back"
+        android:layout_alignBottom="@+id/tv_screenplay"
+        android:layout_alignStart="@+id/tv_gander_back" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/tv_country_back"
+        android:layout_alignBottom="@+id/tv_country"
+        android:layout_alignStart="@+id/tv_screenplay_back" />
+
 </RelativeLayout>
