@@ -91,8 +91,8 @@ public class ShowMovieInfoActivity extends AppCompatActivity {
             }
         });
       //  String imageSource;
-     //   imageSource = m.getPicture();
-     //   image.setImageResource(imageSource);
+      //  imageSource = m.getPicture();
+      //  image.setImageResource(imageSource);
 
         rating = m.getRating();
         if (rating == 1)

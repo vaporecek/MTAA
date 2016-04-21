@@ -57,6 +57,7 @@ public class EditMovieInfoActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 m.setTitle(et_Title.getText().toString());
+                m.setDescription(et_desc.getText().toString());
 
                 try {
                     ConnectionResponse poslednaOdpoved = CRUDhandler.PUT(m); //takto volam PUT
@@ -75,5 +76,13 @@ public class EditMovieInfoActivity extends AppCompatActivity {
         });
 
     }
+    /*
+    @Override
+    public void onBackPressed() {
+        Intent mainIntent = new Intent(EditMovieInfoActivity.this, ShowMovieInfoActivity.class);
 
+
+        startActivity(mainIntent);
+        finish();
+    }*/
 }
