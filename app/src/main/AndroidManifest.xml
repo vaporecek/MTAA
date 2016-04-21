@@ -25,7 +25,9 @@
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ShowMovieInfoActivity"></activity>
+        <activity android:name=".ShowMovieInfoActivity" />
+        <activity android:name=".EditMovieInfoActivity" />
+        <activity android:name=".ImgViewActivity"></activity>
     </application>
 
 </manifest>

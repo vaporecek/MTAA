@@ -7,39 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.mathew.movies.ShowMovieInfoActivity">
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/img"
-        android:src="@drawable/logo"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_toStartOf="@+id/tv_Title"
-        android:layout_above="@+id/tv_where"
-        android:clickable="false" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
-        android:id="@+id/tv_Title"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="69dp"
-        android:textStyle="bold"
-        android:textColor="#de0b0b" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/tv_desc"
-        android:layout_below="@+id/tv_Title"
-        android:layout_alignStart="@+id/tv_Title" />
+    tools:context="com.example.mathew.movies.EditMovieInfoActivity">
 
     <TextView
         android:layout_width="wrap_content"
@@ -151,7 +119,8 @@
         android:text="Small Text"
         android:id="@+id/tv_gander_back"
         android:layout_alignBottom="@+id/tv_gander"
-        android:layout_alignStart="@+id/tv_rating_back" />
+        android:layout_alignStart="@+id/tv_rating_back"
+        android:editable="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -160,7 +129,8 @@
         android:text="Small Text"
         android:id="@+id/tv_screenplay_back"
         android:layout_alignBottom="@+id/tv_screenplay"
-        android:layout_alignStart="@+id/tv_gander_back" />
+        android:layout_alignStart="@+id/tv_gander_back"
+        android:editable="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -169,7 +139,8 @@
         android:text="Small Text"
         android:id="@+id/tv_country_back"
         android:layout_alignBottom="@+id/tv_country"
-        android:layout_alignStart="@+id/tv_screenplay_back" />
+        android:layout_alignStart="@+id/tv_screenplay_back"
+        android:editable="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -186,5 +157,33 @@
         android:id="@+id/btn_delete"
         android:layout_alignBottom="@+id/tv_country_back"
         android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/et_title"
+        android:layout_alignParentEnd="true"
+        android:editable="true"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/tv_where_back"
+        android:layout_alignStart="@+id/editText2" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText2"
+        android:layout_below="@+id/et_title"
+        android:layout_alignStart="@+id/tv_where_back"
+        android:layout_alignEnd="@+id/et_playSchedule" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView2"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/logo"
+        android:layout_above="@+id/tv_where"
+        android:layout_toStartOf="@+id/et_title" />
 
 </RelativeLayout>

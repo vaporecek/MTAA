@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
                 texty.add(m.getTitle() + "   ");
                 imageIDs.add(R.drawable.logo);
                 textDesc.add(m.getDescription());
-
+            //    System.out.println(m.getRating()+ "...................Vypisal som cislo.....................");
             }
         }
         catch(Exception e){e.printStackTrace();}
@@ -115,7 +115,6 @@ public class MainActivity extends AppCompatActivity {
                 Bundle b = new Bundle();
                 b.putInt("indexMovie", position); //Your id
                 mainIntent.putExtras(b); //Put your id to your next Intent
-
 
                 startActivity(mainIntent);
                 finish();
