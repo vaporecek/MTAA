@@ -17,7 +17,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89a6f68f-8cb8-4ad3-a410-4bc443f09e01" name="Default" comment="menu/detail/delete/edit OK">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Android_movie.iws" />
@@ -2354,7 +2353,13 @@
       <option name="project" value="LOCAL" />
       <updated>1461225055704</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="menu/detail/delete/edit OK">
+      <created>1461226526914</created>
+      <option name="number" value="00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1461226526914</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TodoView">
