@@ -27,7 +27,12 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ShowMovieInfoActivity" />
         <activity android:name=".EditMovieInfoActivity" />
-        <activity android:name=".ImgViewActivity"></activity>
+        <activity android:name=".ImgViewActivity"
+            android:parentActivityName=".ShowMovieInfoActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.mathew.movies.ShowMovieInfoActivity" />
+        </activity>
     </application>
 
 </manifest>

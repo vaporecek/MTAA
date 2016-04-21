@@ -35,6 +35,8 @@ public class ShowMovieInfoActivity extends AppCompatActivity {
     Button btn_edit;
     Button btn_del;
     ImageView image;
+    int indexMovie;
+
   //  AlertDialog.Builder builder1 = new AlertDialog.Builder(getApplicationContext());
 
 
@@ -56,7 +58,7 @@ public class ShowMovieInfoActivity extends AppCompatActivity {
         image = (ImageView) findViewById(R.id.img);
 
         Bundle b = getIntent().getExtras();
-        int indexMovie = b.getInt("indexMovie");
+         indexMovie = b.getInt("indexMovie");
 
         try {
             ConnectionResponse poslednaOdpoved = CRUDhandler.GET(); //takto volam GET
@@ -69,7 +71,7 @@ public class ShowMovieInfoActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent mainIntent = new Intent(ShowMovieInfoActivity.this, ImgViewActivity.class);
                 startActivity(mainIntent);
-                finish();
+              //  finish();
             }
         });
 
@@ -79,6 +81,10 @@ public class ShowMovieInfoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent mainIntent = new Intent(ShowMovieInfoActivity.this, EditMovieInfoActivity.class);
+                Bundle b = new Bundle();
+                mainIntent.putExtra("indexMovie", indexMovie);
+
+               // System.out.println(indexMovie + "            ceckyyyyyyyyyyyyyyyyyyy");
                 startActivity(mainIntent);
                 finish();
 
@@ -122,15 +128,6 @@ public class ShowMovieInfoActivity extends AppCompatActivity {
      //   tv_country_back.setText(country.toString());
 
 
-        btn_edit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent mainIntent = new Intent(ShowMovieInfoActivity.this, EditMovieInfoActivity.class);
-                startActivity(mainIntent);
-                finish();
-
-            }
-        });
 
         btn_del.setOnClickListener(new View.OnClickListener() {
             @Override

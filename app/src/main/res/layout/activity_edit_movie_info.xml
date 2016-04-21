@@ -145,16 +145,16 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Edit"
-        android:id="@+id/btn_edit"
+        android:text="Save"
+        android:id="@+id/btn_save"
         android:layout_alignBottom="@+id/tv_screenplay"
         android:layout_alignParentEnd="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Delete"
-        android:id="@+id/btn_delete"
+        android:text="Back"
+        android:id="@+id/btn_back"
         android:layout_alignBottom="@+id/tv_country_back"
         android:layout_alignParentEnd="true" />
 
@@ -166,15 +166,16 @@
         android:editable="true"
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/tv_where_back"
-        android:layout_alignStart="@+id/editText2" />
+        android:layout_alignStart="@+id/et_desc" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText2"
+        android:id="@+id/et_desc"
         android:layout_below="@+id/et_title"
         android:layout_alignStart="@+id/tv_where_back"
-        android:layout_alignEnd="@+id/et_playSchedule" />
+        android:layout_alignEnd="@+id/et_playSchedule"
+        android:layout_alignParentEnd="false" />
 
     <ImageView
         android:layout_width="wrap_content"

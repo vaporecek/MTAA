@@ -20,19 +20,24 @@ import java.util.ArrayList;
 
 public class EditMovieInfoActivity extends AppCompatActivity {
     ArrayList<Movies> filmy;
-
     EditText et_Title;
+    EditText et_desc;
+    Button btn_save;
+    int indexMovie;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_movie_info);
 
-        et_Title = (EditText)findViewById(R.id.et_title);
-
-
         Bundle b = getIntent().getExtras();
-        int indexMovie = b.getInt("indexMovie");
+        if(b!=null)
+            indexMovie = b.getInt("indexMovie");
+
+        et_Title = (EditText)findViewById(R.id.et_title);
+        et_desc = (EditText)findViewById(R.id.et_desc);
+        btn_save = (Button)findViewById(R.id.btn_save);
+
 
         try {
             ConnectionResponse poslednaOdpoved = CRUDhandler.GET(); //takto volam GET
@@ -43,8 +48,31 @@ public class EditMovieInfoActivity extends AppCompatActivity {
         final Movies m = filmy.get(indexMovie);
 
         et_Title.setText(m.getTitle());
+        et_desc.setText(m.getDescription());
 
-        System.out.println("jebeeeeeeeeeem ceckyyyyyyyyyyyyy");
+
+
+        btn_save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                m.setTitle(et_Title.getText().toString());
+
+                try {
+                    ConnectionResponse poslednaOdpoved = CRUDhandler.PUT(m); //takto volam PUT
+                }
+                catch(Exception e){e.printStackTrace();}
+
+
+
+                Intent mainIntent = new Intent(EditMovieInfoActivity.this, ShowMovieInfoActivity.class);
+                Bundle b = new Bundle();
+                mainIntent.putExtra("indexMovie", indexMovie);
+                startActivity(mainIntent);
+                finish();
+
+            }
+        });
 
     }
 

@@ -11,11 +11,4 @@ public class ImgViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.img_view);
     }
-
-    @Override
-    public void onBackPressed() {
-        Intent mainIntent = new Intent(ImgViewActivity.this, ShowMovieInfoActivity.class);
-        startActivity(mainIntent);
-        finish();
-    }
 }
