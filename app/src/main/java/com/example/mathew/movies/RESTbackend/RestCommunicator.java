@@ -58,21 +58,21 @@ public class RestCommunicator extends AsyncTask<RestConfig, Void, ConnectionResp
                 int responseCode = connection.getResponseCode();
                 Log.d("REST", "Response: " + responseCode);
 
-                //pre overenie usera
-                if(responseCode == 200 && params[0].getTYPE()==5){
-                    JSONObject objektus = new JSONObject(responseBody);
-                    System.out.println("&&&&&&&&&&&&&&&&&&&"+responseBody);
-                    //zavolam parser ktory spracuje Json
-                    ArrayList<Users> list = JsonProcesing.GenerateUsers(objektus.getJSONArray("data"));
-                    return new ConnectionResponse(list);
-                }
 
                 //ak bol GET request uspesny idem parsovat Json
                 if (responseCode == 200) {
                     JSONObject objektus = new JSONObject(responseBody);
 
+                    String URLka = objektus.getString("nextPage");
+
+
                     //zavolam parser ktory spracuje Json
                     ArrayList<Movies> list = JsonProcesing.GenerateMovies(objektus.getJSONArray("data"));
+
+
+                    if(URLka != "null"){
+                        return new ConnectionResponse(list, URLka);
+                    }
 
                     return new ConnectionResponse(1, list);
 

@@ -15,6 +15,7 @@ public class ConnectionResponse {
     private String ReturnedMessadge; // string, sprava o vysledku operacie, podla toho zistis ktore ID co znamena
     private ArrayList<Movies> filmy; // toto obsahuje samotny zoznam filmou stiahnuty zo servera, ak sa to nepodarilo obsahuje null
     private ArrayList<Users> users;
+    private String URLka;
 
     //konstruktor na vytvaranie aj so zoznamom filmou
     public ConnectionResponse(int ID, ArrayList<Movies> filmy){
@@ -39,6 +40,14 @@ public class ConnectionResponse {
     public ConnectionResponse(ArrayList<Users> usery){
         this.StatusID=8;
         this.users=usery;
+    }
+
+    //konstruktor na vytvaranie s custom spravou
+    public ConnectionResponse(ArrayList<Movies> movies, String URLkova){
+        this.StatusID=10;
+        this.filmy=movies;
+        this.URLka=URLkova;
+        this.ReturnedMessadge="Pokracujuca odpoved";
     }
 
     //konstruktor na vytvaranie bez zoznamu filmou
@@ -73,6 +82,10 @@ public class ConnectionResponse {
         return filmy;
     }
 
+    public void updateFilmy(ArrayList<Movies> filmos) {
+        this.filmy.addAll(filmos);
+    }
+
     public ArrayList<Users> getUsers() {
         return users;
     }
@@ -81,5 +94,12 @@ public class ConnectionResponse {
         return ("****CRUD operacia: "+this.ReturnedMessadge);
     }
 
+    public int getStatusID(){
+        return this.StatusID;
+    }
+
+    public String getURLka(){
+        return this.URLka;
+    }
 
 }

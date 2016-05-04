@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         //*KAROL: Na backend sa dostanes jednoducho pomocou volania statickych metod PUT, POST, GET, DELETE triedy CRUDhandler
 
             try {
-                
+
 
                 ConnectionResponse poslednaOdpoved = CRUDhandler.GET(); //takto volam GET
                 ArrayList<Movies> filmy = poslednaOdpoved.getFilmy(); //takto ziskam zoznam filmou (pozri triedu ConnectionResponse)
