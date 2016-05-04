@@ -1,6 +1,10 @@
 package com.example.mathew.movies.RESTbackend;
 
+import android.util.Log;
+
 import com.example.mathew.movies.DataClasses.Movies;
+
+import java.util.ArrayList;
 
 /**
  * Created by Karol on 14.04.2016.
@@ -17,8 +21,23 @@ public class CRUDhandler {
 
         System.out.println(Odpoved.toString());
 
+        if (Odpoved.getStatusID()==10)
+            Odpoved.updateFilmy(CRUDhandler.GET(Odpoved.getURLka()));
 
         return (Odpoved);
+    }
+
+    public static ArrayList<Movies> GET(String URLka) throws Exception{
+
+        RestCommunicator com = new RestCommunicator();
+        RestConfig config = new RestConfig(URLka);
+        com.execute(config);
+        ConnectionResponse Odpoved = com.get();
+
+        System.out.println(Odpoved.toString());
+
+
+        return (Odpoved.getFilmy());
     }
 
     public static ConnectionResponse PUT(Movies film) throws Exception{

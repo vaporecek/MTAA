@@ -5,6 +5,7 @@ import android.util.Log;
 import com.example.mathew.movies.DataClasses.JsonProcesing;
 import com.example.mathew.movies.DataClasses.Movies;
 
+import java.net.MalformedURLException;
 import java.net.URL;
 
 import static java.lang.String.*;
@@ -18,7 +19,8 @@ public class RestConfig{
 
     private static URL moviesURL;
     private static URL usersURL;
-    private int type; //1 - GET, 2-PUT, 3-POST, 4-DELETE, 5-USER AUTENTKATION
+    private URL variableURL;
+    private int type; //1 - GET, 2-PUT, 3-POST, 4-DELETE, 5-opakovany request
     private static Movies film;
 
     //nakonfigurujeme aj URL
@@ -38,7 +40,7 @@ public class RestConfig{
     public URL getURL(){
         //ak sa jedna o user autentikaciu
         if(this.type==5){
-            return usersURL;
+            return variableURL;
         }
 
         //ak vraciame URL pre DELETE a PUT
@@ -66,7 +68,7 @@ public class RestConfig{
             case 4:
                 return "DELETE"; //zmazem entitu
             case 5:
-                return "GET";
+                return "GET"; //opakovane volanie
         }
         return "";
     }
@@ -79,6 +81,16 @@ public class RestConfig{
     //konstruktor na GET
     public RestConfig(int type) {
         this.type = type;
+    }
+
+    //konstruktor na opakovany GET
+    public RestConfig(String URLka) {
+        this.type = 5;
+        try {
+            this.variableURL = new URL(URLka);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
     }
 
     //konstruktor pre POST, PUT, DELETE, treba pridat aj entitu o mazem
