@@ -27,7 +27,7 @@ public class CRUDhandler {
         return (Odpoved);
     }
 
-    public static ArrayList<Movies> GET(String URLka) throws Exception{
+    private static ArrayList<Movies> GET(String URLka) throws Exception{
 
         RestCommunicator com = new RestCommunicator();
         RestConfig config = new RestConfig(URLka);
