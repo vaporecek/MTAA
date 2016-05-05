@@ -45,26 +45,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Play Schedule:"
-        android:id="@+id/tv_PlaySchedule"
-        android:editable="false"
-        android:singleLine="false"
-        android:textStyle="bold"
-        android:layout_marginBottom="39dp"
-        android:layout_above="@+id/tv_rating"
-        android:layout_alignParentStart="true"
-        android:layout_toStartOf="@+id/tv_where_back" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Where to watch:"
         android:id="@+id/tv_where"
         android:textStyle="bold"
-        android:layout_above="@+id/tv_PlaySchedule"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="38dp" />
+        android:layout_marginBottom="38dp"
+        android:layout_above="@+id/tv_rating" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -124,16 +110,6 @@
         android:id="@+id/tv_where_back"
         android:layout_alignBottom="@+id/tv_where"
         android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="date"
-        android:ems="10"
-        android:id="@+id/et_playSchedule"
-        android:layout_alignBottom="@+id/tv_PlaySchedule"
-        android:layout_alignStart="@+id/tv_where_back"
-        android:editable="false" />
 
     <TextView
         android:layout_width="wrap_content"

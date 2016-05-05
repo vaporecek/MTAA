@@ -36,6 +36,7 @@ public class ShowMovieInfoActivity extends AppCompatActivity {
     Button btn_del;
     ImageView image;
     int indexMovie;
+ //   public GetImages getImages;
 
   //  AlertDialog.Builder builder1 = new AlertDialog.Builder(getApplicationContext());
 
@@ -90,17 +91,56 @@ public class ShowMovieInfoActivity extends AppCompatActivity {
 
             }
         });
+
+
+/*
+        private class GetImages extends AsyncTask<Object, Object, Object> {
+            private String requestUrl, imagename_;
+            private ImageView view;
+            private Bitmap bitmap ;
+            private FileOutputStream fos;
+
+            private GetImages(String requestUrl) {
+                this.requestUrl = requestUrl;
+            }
+
+            @Override
+            protected Bitmap doInBackground(Object... objects) {
+                try {
+                    URL url = new URL(requestUrl);
+                    URLConnection conn = url.openConnection();
+                    bitmap = BitmapFactory.decodeStream(conn.getInputStream());
+                } catch (Exception ex) {
+                }
+                return bitmap;
+            }
+
+            @Override
+            protected void onPostExecute(Object o) {
+                if(o != null)
+                {
+                    picture.setImageBitmap(bitmap);
+                }
+                else {
+                    //error while get picture
+                }
+            }
+        }
+
+
+*/
+
       //  String imageSource;
       //  imageSource = m.getPicture();
       //  image.setImageResource(imageSource);
 
         rating = m.getRating();
         if (rating == 1)
-            tv_rating_back.setText("Perfektny");
+            tv_rating_back.setText("Slaby");
         else if (rating == 2)
             tv_rating_back.setText("Priemerny");
         else if (rating == 3)
-            tv_rating_back.setText("Slaby");
+            tv_rating_back.setText("Perfektny");
 
         gander = m.getGender();
         if (gander == 1)
@@ -180,8 +220,6 @@ public class ShowMovieInfoActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         Intent mainIntent = new Intent(ShowMovieInfoActivity.this, MainActivity.class);
-
-
         startActivity(mainIntent);
         finish();
     }

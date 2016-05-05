@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -13,26 +14,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Play Schedule:"
-        android:id="@+id/tv_PlaySchedule"
-        android:editable="false"
-        android:singleLine="false"
-        android:textStyle="bold"
-        android:layout_marginBottom="39dp"
-        android:layout_above="@+id/tv_rating"
-        android:layout_alignParentStart="true"
-        android:layout_toStartOf="@+id/tv_where_back" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Where to watch:"
         android:id="@+id/tv_where"
         android:textStyle="bold"
-        android:layout_above="@+id/tv_PlaySchedule"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="38dp" />
+        android:layout_marginBottom="38dp"
+        android:layout_above="@+id/tv_rating" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -41,9 +28,10 @@
         android:text="Rating:"
         android:id="@+id/tv_rating"
         android:textStyle="bold"
-        android:layout_centerVertical="true"
+        android:layout_alignTop="@+id/spinner_Rating"
         android:layout_alignParentStart="true"
-        android:layout_toStartOf="@+id/tv_where_back" />
+        android:layout_alignBottom="@+id/spinner_Rating"
+        android:layout_alignEnd="@+id/tv_gander" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -53,10 +41,8 @@
         android:id="@+id/tv_gander"
         android:textStyle="bold"
         android:password="false"
-        android:layout_marginBottom="34dp"
-        android:layout_above="@+id/tv_screenplay"
-        android:layout_alignParentStart="true"
-        android:layout_toStartOf="@+id/tv_where_back" />
+        android:layout_alignTop="@+id/spinner_Gander"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -79,10 +65,9 @@
         android:id="@+id/tv_country"
         android:textStyle="bold"
         android:password="false"
+        android:layout_marginBottom="42dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="51dp"
-        android:layout_toStartOf="@+id/tv_where_back" />
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -93,70 +78,17 @@
         android:layout_alignBottom="@+id/tv_where"
         android:layout_centerHorizontal="true" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="date"
-        android:ems="10"
-        android:id="@+id/et_playSchedule"
-        android:layout_alignBottom="@+id/tv_PlaySchedule"
-        android:layout_alignStart="@+id/tv_where_back"
-        android:editable="false" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/tv_rating_back"
-        android:layout_alignBottom="@+id/tv_rating"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/tv_gander_back"
-        android:layout_alignBottom="@+id/tv_gander"
-        android:layout_alignStart="@+id/tv_rating_back"
-        android:editable="true" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Small Text"
         android:id="@+id/tv_screenplay_back"
-        android:layout_alignBottom="@+id/tv_screenplay"
-        android:layout_alignStart="@+id/tv_gander_back"
-        android:editable="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/tv_country_back"
-        android:layout_alignBottom="@+id/tv_country"
-        android:layout_alignStart="@+id/tv_screenplay_back"
-        android:editable="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Save"
-        android:id="@+id/btn_save"
-        android:layout_alignBottom="@+id/tv_screenplay"
-        android:layout_alignParentEnd="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Back"
-        android:id="@+id/btn_back"
-        android:layout_alignBottom="@+id/tv_country_back"
-        android:layout_alignParentEnd="true" />
+        android:editable="true"
+        android:layout_above="@+id/spinner_Country"
+        android:layout_alignEnd="@+id/spinner_Country"
+        android:layout_alignTop="@+id/tv_screenplay"
+        android:layout_alignStart="@+id/spinner_Country" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -174,10 +106,10 @@
         android:id="@+id/et_desc"
         android:layout_below="@+id/et_title"
         android:layout_alignStart="@+id/tv_where_back"
-        android:layout_alignEnd="@+id/et_playSchedule"
-        android:layout_alignParentEnd="false" />
+        android:layout_alignEnd="@+id/spinner_Rating" />
 
     <ImageView
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView2"
@@ -186,5 +118,29 @@
         android:src="@drawable/logo"
         android:layout_above="@+id/tv_where"
         android:layout_toStartOf="@+id/et_title" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner_Rating"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/tv_screenplay" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner_Gander"
+        android:layout_above="@+id/tv_screenplay_back"
+        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/tv_screenplay_back" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner_Country"
+        android:layout_below="@+id/tv_screenplay"
+        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/tv_where_back" />
 
 </RelativeLayout>

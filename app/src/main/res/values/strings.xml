@@ -4,4 +4,9 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_edit_movie">EditMovieActivity</string>
     <string name="title_activity_edit_movie_info">EditMovieInfoActivity</string>
+    <string-array name="Rating">
+        <item>Slaby</item>
+        <item>Priemerny</item>
+        <item>Perfektny</item>
+    </string-array>
 </resources>
