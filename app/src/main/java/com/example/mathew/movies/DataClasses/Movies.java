@@ -86,6 +86,37 @@ public class Movies {
         //System.out.println("******"+this.toString());
     }
 
+    //konstruktor pre sokety
+    public Movies(JSONObject velkyobjekt) {
+
+        try {
+
+            this.backendlessObjectid = velkyobjekt.getString("id");
+            JSONObject toParse = velkyobjekt.getJSONObject("data");
+
+            this.country = toParse.getInt("country");
+            this.description = toParse.getString("Description");
+            this.gender = toParse.getInt("gender");
+            this.picture = toParse.getString("picture");
+            this.rating = toParse.getInt("rating");
+            this.screenplay = toParse.getString("Screenplay");
+            this.title = toParse.getString("Title");
+            this.to_watch = toParse.getString("to_watch");
+            String prehravanie = toParse.getString("Play_time");
+            if(prehravanie != null)
+                this.play_time = originalFormat.parse(toParse.getString(prehravanie));
+            else
+                this.play_time = null;
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        //System.out.println("******"+toParse);
+        //System.out.println("******"+this.toString());
+    }
+
     //taky pekny tostring aby si si vedel klasu vypisat ako vyzera, feel free to edit
     public String toString() {
         return "Movies [listingID=" + listingID + ", country=" + country + ", description=" + description + ", gender="

@@ -3,16 +3,13 @@ package com.example.mathew.movies;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.backendless.Backendless;
 import com.example.mathew.movies.DataClasses.Movies;
-import com.example.mathew.movies.Micelaus.UserValidation;
 import com.example.mathew.movies.RESTbackend.CRUDhandler;
 import com.example.mathew.movies.RESTbackend.ConnectionResponse;
-import com.example.mathew.movies.RESTbackend.RestCommunicator;
 import com.example.mathew.movies.RESTbackend.RestConfig;
+import com.example.mathew.movies.RESTbackend.SoketCommunicator;
 
 import java.util.ArrayList;
-import java.util.concurrent.ExecutionException;
 //import com.backendless.async.callback.AsyncCallback;
 
 public class MainActivity extends AppCompatActivity {
@@ -25,16 +22,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        //*KAROL: Na backend sa dostanes jednoducho pomocou volania statickych metod PUT, POST, GET, DELETE triedy CRUDhandler
+        //*KAROL: Na backend (touch4IT SOKETY)sa dostanes jednoducho pomocou volania statickych metod PUT, POST, GET, DELETE triedy CRUDhandler
+        // a backendlessPUT, backendlessPOST, backendlessDELETE, backendlessGET pre pristup na backendless
 
             try {
 
+                ConnectionResponse poslednaOdpoved = CRUDhandler.GET(); //takto volam GET cez sokety
 
-                ConnectionResponse poslednaOdpoved = CRUDhandler.GET(); //takto volam GET
-                ArrayList<Movies> filmy = poslednaOdpoved.getFilmy(); //takto ziskam zoznam filmou (pozri triedu ConnectionResponse)
-                for(Movies film : filmy) {
-                    System.out.println(film.toString());
-                }
+
 
             }catch(Exception e){e.printStackTrace();}
 

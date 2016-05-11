@@ -35,6 +35,25 @@ public class JsonProcesing {
         return filmy;
     }
 
+    public static ArrayList<Movies> MoviesFromSocket(JSONArray imputarray){
+
+
+        ArrayList<Movies> filmy = new ArrayList<Movies>();
+
+        try {
+
+            //nad kazdym objektom v sprave zavolam konstruktor na vytvorenie novej instancie Movies
+            for (int i=0; i<imputarray.length(); i++) {
+                filmy.add(new Movies(imputarray.getJSONObject(i)));
+
+            }
+        } catch (Exception e) {
+            Log.e("JsonProcesing", e.getClass() + ": " + e.getMessage());
+        }
+
+        return filmy;
+    }
+
     //vytvory z filmu novy JSONobject
     public static JSONObject GenerateJason(Movies film){
         JSONObject json = new JSONObject();
@@ -47,9 +66,9 @@ public class JsonProcesing {
             json.put("rating",film.getRating());
             json.put("Title",film.getTitle());
             json.put("picture",film.getPicture());
-            json.put("Play_time",originalFormat.format(film.getPlay_time()));
-            json.put("to_watch",film.getTo_watch());
             json.put("Screenplay",film.getScreenplay());
+            json.put("to_watch",film.getTo_watch());
+            json.put("Play_time",originalFormat.format(film.getPlay_time()));
 
         } catch (Exception e) {
             Log.e("JsonProcesing", e.getClass() + ": " + e.getMessage());
