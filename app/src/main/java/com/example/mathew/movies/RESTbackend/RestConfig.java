@@ -5,6 +5,8 @@ import android.util.Log;
 import com.example.mathew.movies.DataClasses.JsonProcesing;
 import com.example.mathew.movies.DataClasses.Movies;
 
+import org.json.JSONObject;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -21,7 +23,7 @@ public class RestConfig{
     private static URL usersURL;
     private URL variableURL;
     private int type; //1 - GET, 2-PUT, 3-POST, 4-DELETE, 5-opakovany request
-    private static Movies film;
+    private Movies film;
 
     //nakonfigurujeme aj URL
     static {
@@ -96,12 +98,21 @@ public class RestConfig{
     //konstruktor pre POST, PUT, DELETE, treba pridat aj entitu o mazem
     public RestConfig(int type, Movies film) {
         this.type = type;
-        RestConfig.film = film;
+        this.film = film;
     }
 
     //vrati JSON z prilozeneho filmu pre PUT a POST
     public String getJson(){
         return valueOf((JsonProcesing.GenerateJason(film)));
+    }
+
+    //parsuje object pre sockety
+    public JSONObject getJsonObject(){
+        return JsonProcesing.GenerateJason(film);
+    }
+
+    public String getFilmID(){
+        return this.film.getBackendlessObjectid();
     }
 
 }
